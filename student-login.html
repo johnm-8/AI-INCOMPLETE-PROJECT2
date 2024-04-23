@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <title>Updates</title>
+
+    <!-- CSS FILES -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+
+    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="assignment-checkbox.css" />
+    <!--
+
+Tooplate 2136 Kool Form Pack
+
+https://www.tooplate.com/view/2136-kool-form-pack
+
+Bootstrap 5 Form Pack Template
+
+-->
+  </head>
+
+  <body>
+    <main>
+      <header class="site-header">
+        <div class="container">
+          <div class="row justify-content-between">
+            <div class="col-lg-12 col-12 d-flex align-items-center">
+              <!-- Site Header Text -->
+              <a class="site-header-text me-auto" href="index.php">
+                <i class="bi-robot"></i>
+                <span> INC GRADE </span>
+              </a>
+              
+              <!-- Progress Bar -->
+              <div class="progress mx-3" style="width: 82%;"> <!-- Adjust width as necessary -->
+                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+              </div>
+              
+              <!-- Offcanvas Icon -->
+              <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div
+        class="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasMenu"
+        aria-labelledby="offcanvasMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <button
+            type="button"
+            class="btn-close ms-auto"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+
+        <div
+          class="offcanvas-body d-flex flex-column justify-content-center align-items-center"
+        >
+          <nav>
+            <ul>
+              <li>
+                <a href="login.php">Assignment 1 Completed</a>
+              </li>
+
+              <li>
+                <a href="register.php">Assignment 2 Completed</a>
+              </li>
+
+              <li>
+                <a href="password-reset.html">Assignment 3 Completed </a>
+              </li>
+
+              <li>
+                <a class="active" href="update.html">Assignment 4 Completed</a>
+              </li>
+
+              <li>
+                <a href="contact.html">Assignment 5 Completed</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      
+      <section
+        class="hero-section hero-bg d-flex justify-content-center align-items-center"
+      >
+      <!-- This is the hover button code -->
+        <div class="container"> 
+          <div class="row">
+            <div class="col-lg-8 col-12 text-center mx-auto">
+              <h2 class="page-404-title"></h2>
+                      <!-- Original content from the first block -->
+               <style>
+                        .bubble {
+                          background-color: #000000;
+                          border-radius: 10px;
+                          padding: 20px;
+                          margin-bottom: 20px;
+                          transition: transform 0.3s ease;
+                        }
+              
+                        .bubble:hover {
+                          transform: scale(1.1);
+                        }
+              
+                        .bubble h3 {
+                          font-size: 24px;
+                          margin-bottom: 10px;
+                        }
+              
+                        .bubble p {
+                          font-size: 16px;
+                          margin-bottom: 10px;
+                        }
+              </style>
+              <div
+                class="bubble"
+                onmouseover="showText()"
+                onmouseout="hideText()"
+              >
+                <h3>HW Assignments</h3>
+                <p class="bubble-text">CSC 1000</p>
+                <div id="assignment" class="bubble-text">
+                  <label class="switch">
+                    <input type="checkbox" id="checkbox" />
+                    <span class="slider"></span>
+                  </label>
+                  Create a simple game with C++ and Python
+                </div>
+                <p class="bubble-text">Due: 10/10/2024</p>
+              </div>
+
+              <script>
+                document
+                  .getElementById("checkbox")
+                  .addEventListener("change", function () {
+                    if (this.checked) {
+                      var assignment = document.getElementById("assignment");
+                      var fadeEffect = setInterval(function () {
+                        if (!assignment.style.opacity) {
+                          assignment.style.opacity = 1;
+                        }
+                        if (assignment.style.opacity > 0) {
+                          assignment.style.opacity -= 0.1;
+                        } else {
+                          clearInterval(fadeEffect);
+                          assignment.style.display = "none";
+                        }
+                      }, 200);
+                    }
+                  });
+              </script>
+              <style>
+              .bubble {
+              background-color: #ad9552;
+              border-radius: 20px;
+              padding: 20px;
+              margin-bottom: 20px;
+              transition: transform 0.3s ease;
+              }
+
+                .bubble:hover {
+                  transform: scale(1.1);
+                }
+
+                .bubble h3 {
+                  font-size: 24px;
+                  margin-bottom: 10px;
+                }
+
+                .bubble p {
+                  font-size: 16px;
+                  margin-bottom: 10px;
+                }
+              </style>
+
+              <div class="bubble">
+                <h3>Mid-terms Finals</h3>
+                <p>Read Chapter 1, 2, 3, 4, 5</p>
+                <p>Read Slides</p>
+                <p>Have fun studying!</p>
+              </div>
+
+              <div class="bubble">
+                <h3>Upload File</h3>
+                <input type="file" id="fileUpload" name="fileUpload" />
+
+                <span id="uploadStatus"></span>
+                <span id="uploadIcon"></span>
+              </div>
+
+              <script>
+                const fileUpload = document.getElementById("fileUpload");
+                const uploadStatus = document.getElementById("uploadStatus");
+                const uploadIcon = document.getElementById("uploadIcon");
+
+                fileUpload.addEventListener("change", () => {
+                  if (fileUpload.files.length > 0) {
+                    uploadStatus.textContent = "Complete";
+                    uploadIcon.innerHTML =
+                      '<span style="color: green;">&#10004;</span>';
+                    fileUpload.value = ""; // Clear the file input value
+
+                    // Remove the complete text after 2 seconds
+                    setTimeout(() => {
+                      uploadStatus.textContent = "";
+                      uploadIcon.innerHTML = "";
+                    }, 2000);
+                  } else {
+                    uploadStatus.textContent = "";
+                    uploadIcon.innerHTML =
+                      '<span style="color: red;">&#10006;</span>';
+                  }
+                });
+              </script>
+          
+              <a class="custom-btn btn mt-4" href="index.php">Sign Out</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="video-wrap">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
+          <source src="videos/cis2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </main>
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/countdown.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/manny.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
