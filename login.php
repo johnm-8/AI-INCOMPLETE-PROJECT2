@@ -1,81 +1,89 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+
+include("connections.php");
+include("functions.php");
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    //something was posted
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $user_type = $_POST['user_type']; // Added
+
+    if (!empty($email) && !empty($password)) {
+        //read from the database
+        $query = "select * from students where email = '$email' limit 1"; // Changed to email
+
+        $result = mysqli_query($con, $query);
+        //$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+        if (!$result) {
+            die("Error in query: " . mysqli_error($con));
+        }
+
+        if ($result && mysqli_num_rows($result) > 0) {
+            $user_data = mysqli_fetch_assoc($result);
+            //verify the password
+            if (password_verify($password, $user_data['password'])) { // Changed
+                $_SESSION['student_id'] = $user_data['student_id'];
+                //redirect to index.php after successful login
+                header("Location: index.php");
+                die;
+            } else {
+                echo "Incorrect username or password!";
+            }
+        } else {
+            echo "Incorrect username or password!";
+        }
+    } else {
+        echo "Please provide both email and password!";
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
 
     <title>Login page</title>
 
     <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap"
+            rel="stylesheet"/>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet"/>
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet" />
+    <link href="css/bootstrap-icons.css" rel="stylesheet"/>
 
-    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet" />
+    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet"/>
     <!--
 
-Tooplate 2136 Kool Form Pack
+    Tooplate 2136 Kool Form Pack
 
-https://www.tooplate.com/view/2136-kool-form-pack
+    https://www.tooplate.com/view/2136-kool-form-pack
 
-Bootstrap 5 Form Pack Template
+    Bootstrap 5 Form Pack Template
 
--->
-  </head>
+    -->
+</head>
 
-  <body>
-  <?php
-session_start();
-require 'pdo_connection.php';
-
-$error = ''; // Variable to store error message.
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = $_POST['password'];
-
-    if (!empty($email) && !empty($password)) {
-        // Prepare the SQL statement to prevent SQL injection.
-        $sql = "SELECT * FROM Students WHERE Email = ?";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute([$email]);
-        $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        if ($user && password_verify($password, $user['Password'])) {
-            // User is found and password is correct.
-            $_SESSION['user_id'] = $user['ID'];
-            $_SESSION['email'] = $user['Email'];
-
-            // Redirect to the static HTML page.
-            header("Location: student-login.html");
-            exit;
-        } else {
-            // No user found or password is incorrect.
-            $error = "Invalid email or password. Please try again.";
-        }
-    } else {
-        $error = "Please enter both email and password.";
-    }
-}
-
-// If the script reaches here without redirecting, it means no login occurred.
-// Include login form here or in a separate file as preferred.
-?>
-    <main>
-      <header class="site-header">
-        <div class="container">
+<body>
+<main>
+    <header class="site-header">
+    <div class="container">
           <div class="row justify-content-between">
             <div class="col-lg-12 col-12 d-flex">
               <a
@@ -126,16 +134,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </div>
         </div>
-      </header>
+    </header>
 
-      <div
-        class="offcanvas offcanvas-end"
-        data-bs-scroll="true"
-        tabindex="-1"
-        id="offcanvasMenu"
-        aria-labelledby="offcanvasMenuLabel"
-      >
-        <div class="offcanvas-header">
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu"
+         aria-labelledby="offcanvasMenuLabel">
+         <div class="offcanvas-header">
           <button
             type="button"
             class="btn-close ms-auto"
@@ -171,17 +174,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </ul>
           </nav>
         </div>
-      </div>
+    </div>
 
-      <!-- Modal -->
-      <div
-        class="modal fade"
-        id="subscribeModal"
-        tabindex="-1"
-        aria-labelledby="subscribeModalLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <!-- Modal -->
+    <div class="modal fade" id="subscribeModal" tabindex="-1" aria-labelledby="subscribeModalLabel"
+         aria-hidden="true">
+         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
           <div class="modal-content">
             <div class="modal-header">
               <button
@@ -222,127 +220,123 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
           </div>
         </div>
-      </div>
+    </div>
 
-      <section class="hero-section d-flex justify-content-center align-items-center">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-5 col-12 mx-auto">
-        <form class="custom-form login-form" role="form" method="post" action="login.php">
-          <h2 class="hero-title text-center mb-4 pb-2">Login</h2>
-          
-          <?php if (!empty($error)): ?>
-            <div class="alert alert-danger" role="alert">
-              <?php echo htmlspecialchars($error); ?>
-            </div>
-          <?php endif; ?>
-          
-          <div class="form-floating mb-4 p-0">
-            <input
-              type="email"
-              name="email"
-              id="email"
-              pattern="[^ @]*@[^ @]*"
-              class="form-control"
-              placeholder="Email address"
-              required=""
-            />
-            <label for="email">Email address</label>
-          </div>
+    <section class="hero-section d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-12 mx-auto">
+                    <form class="custom-form login-form" role="form" method="post" action="login.php">
+                        <h2 class="hero-title text-center mb-4 pb-2">Login</h2>
 
-          <div class="form-floating p-0">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="form-control"
-              placeholder="Password"
-              required=""
-            />
-            <label for="password">Password</label>
-          </div>
-        
-          <div style="display: flex; justify-content: center; gap: 20px;">
-            <div class="form-check mb-4">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value="student"
-                name="user_type"
-                id="flexCheckDefault1"
-              />
-              <label class="form-check-label" for="flexCheckDefault1">
-                <span style="color: #F2CC8F; cursor: pointer;">Student</span>
-              </label>
-            </div>
+                        <?php if (!empty($error)): ?>
+                            <div class="alert alert-danger" role="alert">
+                                <?php echo htmlspecialchars($error); ?>
+                            </div>
+                        <?php endif; ?>
 
-            <div class="form-check mb-4">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value="professor"
-                name="user_type"
-                id="flexCheckDefault2"
-              />
-              <label class="form-check-label" for="flexCheckDefault2">
-                <span style="color: #F2CC8F; cursor: pointer;">Professor</span>
-              </label>
-            </div>
-          </div>
-              
-                <div class="row justify-content-center align-items-center">
-                  <div class="col-lg-5 col-12">
-                    <button type="submit" class="form-control">Login</button>
-                  </div>
+                        <div class="form-floating mb-4 p-0">
+                            <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    pattern="[^ @]*@[^ @]*"
+                                    class="form-control"
+                                    placeholder="Email address"
+                                    required=""
+                            />
+                            <label for="email">Email address</label>
+                        </div>
 
-                  <div class="col-lg-5 col-12">
-                    <a
-                      href="register.php"
-                      class="btn custom-btn custom-border-btn"
-                      >Register</a
-                    >
-                  </div>
+                        <div class="form-floating p-0">
+                            <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    class="form-control"
+                                    placeholder="Password"
+                                    required=""
+                            />
+                            <label for="password">Password</label>
+                        </div>
+
+                        <div style="display: flex; justify-content: center; gap: 20px;">
+                            <div class="form-check mb-4">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="student"
+                                        name="user_type"
+                                        id="studentCheck" 
+                                />
+                                <label class="form-check-label" for="studentCheck">
+                                    <span style="color: #F2CC8F; cursor: pointer;">Student</span>
+                                </label>
+                            </div>
+
+                            <div class="form-check mb-4">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value="professor"
+                                        name="user_type"
+                                        id="professorCheck" 
+                                />
+                                <label class="form-check-label" for="professorCheck">
+                                    <span style="color: #F2CC8F; cursor: pointer;">Professor</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-lg-5 col-12">
+                                <button type="submit" class="form-control">Login</button>
+                            </div>
+
+                            <div class="col-lg-5 col-12">
+                                <a href="register.php" class="btn custom-btn custom-border-btn">Register</a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-              </form>
             </div>
-          </div>
         </div>
 
         <div class="video-wrap">
-          <video autoplay="" loop="" muted="" class="custom-video" poster="">
+        <video autoplay="" loop="" muted="" class="custom-video" poster="">
             <source src="videos/flag1.mp4" type="video/mp4" />
 
             Your browser does not support the video tag.
           </video>
         </div>
-      </section>
-    </main>
+    </section>
+</main>
 
-    <script>
+<script>
     document.addEventListener("DOMContentLoaded", (event) => {
-  const loginForm = document.querySelector(".login-form");
-  loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const studentChecked = document.getElementById("flexCheckDefault1").checked;
-    const professorChecked = document.getElementById("flexCheckDefault2").checked;
+        const loginForm = document.querySelector(".login-form");
+        loginForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const studentChecked = document.getElementById("studentCheck").checked; // Changed
+            const professorChecked = document.getElementById("professorCheck").checked; // Changed
 
-    if (studentChecked) {
-      window.location.href = 'student-login.html';
-    } else if (professorChecked) {
-      window.location.href = 'professor-login.html';
-    } else {
-      // No checkboxes are checked, or some other logic you want to implement
-      alert("Please select an option.");
-    }
-  });
-});
+            if (studentChecked) {
+                window.location.href = 'student-login.html';
+            } else if (professorChecked) {
+                window.location.href = 'professor-login.html';
+            } else {
+                // No checkboxes are checked, or some other logic you want to implement
+                alert("Please select an option.");
+            }
+        });
+    });
 
-    </script>
+</script>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/countdown.js"></script>
-    <script src="js/init.js"></script>
-  </body>
+<!-- JAVASCRIPT FILES -->
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/init.js"></script>
+</body>
 </html>
