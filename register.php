@@ -9,10 +9,12 @@ session_start();
 
   if($_SERVER['REQUEST_METHOD'] == "POST"){
     //something was posted
-    $user_name = $_POST['user_name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $email = $_POST['email'];
     $password = $_POST['password'];
 
-  if (!empty($user_name) && !empty($password) && !is_numeric($user_name)) {
+  if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($password) && !is_numeric($first_name) && !is_numeric($last_name)) {
     // Handle image upload
     if(isset($_FILES['image']) && $_FILES['image']['error'] == 0) {
         // Process the uploaded image
@@ -21,8 +23,8 @@ session_start();
         $data = file_get_contents($_FILES['image']['tmp_name']);
 
         // Insert user data and image data into the database
-        $student_id = random_num(11);
-        $query = "INSERT INTO students (student_id, user_name, password, image_name, image_type, image_data) VALUES ('$student_id', '$user_name', '$password', ?, ?, ?)";
+        $student_id = random_num(11, $max_student_id);
+        $query = "INSERT INTO students (student_id, first_name, last_name, email, password, image_name, image_type, image_data) VALUES ('$student_id', '$first_name', '$last_name', '$email', '$password', ?, ?, ?)";
         $stmt = mysqli_prepare($con, $query);
         mysqli_stmt_bind_param($stmt, 'sss', $name, $type, $data);
         mysqli_stmt_execute($stmt);
@@ -204,27 +206,42 @@ session_start();
         <section class="hero-section d-flex justify-content-center align-items-center">
             <div class="container">
                 <div class="row">
+                <div style="height:5em;"></div>
                     <div class="col-lg-6 col-12 mx-auto">
                         <form class="custom-form" role="form" method="post" action="register.php" enctype="multipart/form-data">
                             <h2 class="hero-title text-center mb-4 pb-2">Create an account</h2>
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-12">
                                     <div class="form-floating">
-                                        <input type="text" name="full-name" id="full-name" class="form-control" placeholder="Full Name" required="">
-                                        <label for="floatingInput">Full Name</label>
+                                        <input type="text" name="first_name" id="first_name" class="form-control" placeholder="First Name" autocomplete="off" required="">
+                                        <label for="floatingInput">First Name</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6 col-12">
+                                    <div class="form-floating">
+                                        <input type="text" name="last_name" id="last_name" class="form-control" placeholder="Last Name" autocomplete="off" required="">
+                                        <label for="floatingInput">Last Name</label>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-12">
                                     <div class="form-floating mb-4 p-0">
-                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" required="">
+                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Email address" autocomplete="off" required="">
                                         <label for="email">Email address</label>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-12">
                                     <div class="form-floating p-0">
-                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" required="">
+                                        <input type="password" name="password" id="password" class="form-control" placeholder="Password" autocomplete="off" required="">
                                         <label for="password">Password</label>
                                     </div>
+                                </div>
+                                <div class="col-lg-12 col-12">
+                                    <div class="form-floating p-0">
+                                        <input type="file" name="image" id="image" class="form-control" autocomplete="off" required="">
+                                        <label for="image">Upload Image</label>
+                                    </div>
+                                </div>
+                                <div>
                                     <div class="form-check mb-4">
                                         <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
                                         <label class="form-check-label" for="flexCheckDefault">I agree to the Terms of Service and Privacy Policy.</label>
@@ -236,7 +253,7 @@ session_start();
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-7">
                                         <div class="speech-bubble">
-                                            <p class="mb-0 bubble-animation" style="font-weight: bold; color: rgb(0, 0, 0)">Already have an account? <a href="login.html" class="ms-2" style="text-decoration: underline">Login</a></p>
+                                            <p class="mb-0 bubble-animation" style="font-weight: bold; color: rgb(0, 0, 0)">Already have an account? <a href="login.php" class="ms-2" style="text-decoration: underline">Login</a></p>
                                         </div>
                                     </div>
                                 </div>

@@ -31,17 +31,24 @@ function check_login($con){
     die;
 }
 
-function random_num($length){
+function random_num($length, $max_value) {
     $text = "";
-    if($length < 5){
+    if ($length < 5) {
         $length = 5;
     }
 
     $len = rand(4, $length);
 
-    for($i = 0; $i < $len; $i++){
+    for ($i = 0; $i < $len; $i++) {
         $text .= rand(0, 9);
     }
-    return $text;
+
+    // Ensure the generated number is within the allowed range
+    $random_num = (int) $text;
+    if ($random_num > $max_value) {
+        $random_num = $random_num % $max_value;
+    }
+
+    return $random_num;
 }
 ?>

@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     //something was posted
     $email = $_POST['email'];
     $password = $_POST['password'];
-    $user_type = $_POST['user_type']; // Added
+    // $user_type = $_POST['user_type']; // Added
 
     if (!empty($email) && !empty($password)) {
         //read from the database
@@ -243,6 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     pattern="[^ @]*@[^ @]*"
                                     class="form-control"
                                     placeholder="Email address"
+                                    autocomplete="off"
                                     required=""
                             />
                             <label for="email">Email address</label>
@@ -255,6 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     id="password"
                                     class="form-control"
                                     placeholder="Password"
+                                    autocomplete="off"
                                     required=""
                             />
                             <label for="password">Password</label>

@@ -1,265 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <meta name="description" content="" />
-    <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
 
-    <title>Updates</title>
+  <title>Updates</title>
 
-    <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <!-- CSS FILES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="css/bootstrap.min.css" rel="stylesheet" />
+  <link href="css/bootstrap-icons.css" rel="stylesheet" />
+  <link href="css/tooplate-kool-form-pack.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="assignment-checkbox.css" />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.css' rel='stylesheet' />
+  <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.css' rel='stylesheet' />
+  <!-- Tooplate 2136 Kool Form Pack -->
+  <!-- https://www.tooplate.com/view/2136-kool-form-pack -->
+</head>
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<body>
+  <main>
+    <header class="site-header">
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col-lg-12 col-12 d-flex align-items-center">
+            <!-- Site Header Text -->
+            <a class="site-header-text me-auto" href="index.php">
+              <i class="bi-robot"></i>
+              <span> INC GRADE</span>
+            </a>
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,700;1,200&family=Unbounded:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
-
-    <link href="css/bootstrap-icons.css" rel="stylesheet" />
-
-    <link href="css/tooplate-kool-form-pack.css" rel="stylesheet" />
-
-    <link rel="stylesheet" type="text/css" href="assignment-checkbox.css" />
-    <!--
-
-Tooplate 2136 Kool Form Pack
-
-https://www.tooplate.com/view/2136-kool-form-pack
-
-Bootstrap 5 Form Pack Template
-
--->
-  </head>
-
-  <body>
-    <main>
-      <header class="site-header">
-        <div class="container">
-          <div class="row justify-content-between">
-            <div class="col-lg-12 col-12 d-flex align-items-center">
-              <!-- Site Header Text -->
-              <a class="site-header-text me-auto" href="index.php">
-                <i class="bi-robot"></i>
-                <span> INC GRADE </span>
-              </a>
-              
-              <!-- Progress Bar -->
-              <div class="progress mx-3" style="width: 82%;"> <!-- Adjust width as necessary -->
-                <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
-              </div>
-              
-              <!-- Offcanvas Icon -->
-              <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
+            <!-- Progress Bar -->
+            <div class="progress mx-3" style="width: 82%;"> <!-- Adjust width as necessary -->
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
             </div>
+
+            <!-- Offcanvas Icon -->
+            <a class="bi-list offcanvas-icon" data-bs-toggle="offcanvas" href="#offcanvasMenu" role="button" aria-controls="offcanvasMenu"></a>
           </div>
         </div>
-      </header>
-
-      <div
-        class="offcanvas offcanvas-end"
-        data-bs-scroll="true"
-        tabindex="-1"
-        id="offcanvasMenu"
-        aria-labelledby="offcanvasMenuLabel"
-      >
-        <div class="offcanvas-header">
-          <button
-            type="button"
-            class="btn-close ms-auto"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-
-        <div
-          class="offcanvas-body d-flex flex-column justify-content-center align-items-center"
-        >
-          <nav>
-            <ul>
-              <li>
-                <a href="login.php">Assignment 1 Completed</a>
-              </li>
-
-              <li>
-                <a href="register.php">Assignment 2 Completed</a>
-              </li>
-
-              <li>
-                <a href="password-reset.html">Assignment 3 Completed </a>
-              </li>
-
-              <li>
-                <a class="active" href="update.html">Assignment 4 Completed</a>
-              </li>
-
-              <li>
-                <a href="contact.html">Assignment 5 Completed</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
       </div>
-      
-      <section
-        class="hero-section hero-bg d-flex justify-content-center align-items-center"
-      >
-      <!-- This is the hover button code -->
-        <div class="container"> 
-          <div class="row">
-            <div class="col-lg-8 col-12 text-center mx-auto">
-              <h2 class="page-404-title"></h2>
-                      <!-- Original content from the first block -->
-               <style>
-                        .bubble {
-                          background-color: #000000;
-                          border-radius: 10px;
-                          padding: 20px;
-                          margin-bottom: 20px;
-                          transition: transform 0.3s ease;
-                        }
-              
-                        .bubble:hover {
-                          transform: scale(1.1);
-                        }
-              
-                        .bubble h3 {
-                          font-size: 24px;
-                          margin-bottom: 10px;
-                        }
-              
-                        .bubble p {
-                          font-size: 16px;
-                          margin-bottom: 10px;
-                        }
-              </style>
-              <div
-                class="bubble"
-                onmouseover="showText()"
-                onmouseout="hideText()"
-              >
-                <h3>HW Assignments</h3>
-                <p class="bubble-text">CSC 1000</p>
-                <div id="assignment" class="bubble-text">
-                  <label class="switch">
-                    <input type="checkbox" id="checkbox" />
-                    <span class="slider"></span>
-                  </label>
-                  Create a simple game with C++ and Python
-                </div>
-                <p class="bubble-text">Due: 10/10/2024</p>
-              </div>
+    </header>
 
-              <script>
-                document
-                  .getElementById("checkbox")
-                  .addEventListener("change", function () {
-                    if (this.checked) {
-                      var assignment = document.getElementById("assignment");
-                      var fadeEffect = setInterval(function () {
-                        if (!assignment.style.opacity) {
-                          assignment.style.opacity = 1;
-                        }
-                        if (assignment.style.opacity > 0) {
-                          assignment.style.opacity -= 0.1;
-                        } else {
-                          clearInterval(fadeEffect);
-                          assignment.style.display = "none";
-                        }
-                      }, 200);
-                    }
-                  });
-              </script>
-              <style>
+    <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasMenu" aria-labelledby="offcanvasMenuLabel">
+      <div class="offcanvas-header">
+        <button type="button" class="btn-close ms-auto" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+
+      <div class="offcanvas-body d-flex flex-column justify-content-center align-items-center">
+        <nav>
+          <ul>
+            <li>
+              <a href="login.php">Assignment 1 Completed</a>
+            </li>
+            <li>
+              <a href="register.php">Assignment 2 Completed</a>
+            </li>
+            <li>
+              <a href="password-reset.html">Assignment 3 Completed </a>
+            </li>
+            <li>
+              <a class="active" href="update.html">Assignment 4 Completed</a>
+            </li>
+            <li>
+              <a href="contact.html">Assignment 5 Completed</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <section class="hero-section hero-bg d-flex justify-content-center align-items-center">
+      <!-- This is the hover button code -->
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+            <h2 class="page-404-title"></h2>
+            <!-- Original content from the first block -->
+            <style>
               .bubble {
-              background-color: #ad9552;
-              border-radius: 20px;
-              padding: 20px;
-              margin-bottom: 20px;
-              transition: transform 0.3s ease;
+                background-color: #000000;
+                border: 1px solid #000000;
+                border-radius: 10px;
+                padding: 20px;
+                margin-bottom: 20px;
+                transition: transform 0.3s ease;
               }
 
-                .bubble:hover {
-                  transform: scale(1.1);
-                }
+              .bubble:hover {
+                transform: scale(1.1);
+              }
 
-                .bubble h3 {
-                  font-size: 24px;
-                  margin-bottom: 10px;
-                }
+              .bubble h3 {
+                font-size: 24px;
+                margin-bottom: 10px;
+              }
 
-                .bubble p {
-                  font-size: 16px;
-                  margin-bottom: 10px;
-                }
-              </style>
-
-              <div class="bubble">
-                <h3>Mid-terms Finals</h3>
-                <p>Read Chapter 1, 2, 3, 4, 5</p>
-                <p>Read Slides</p>
-                <p>Have fun studying!</p>
+              .bubble p {
+                font-size: 16px;
+                margin-bottom: 10px;
+              }
+            </style>
+            <div style="height:6em;"></div>
+            <div class="bubble" onmouseover="showText()" onmouseout="hideText()">
+              <h3>HW Assignments</h3>
+              <p class="bubble-text">CSC 1000</p>
+              <div id="assignment" class="bubble-text">
+                <label class="switch">
+                  <input type="checkbox" id="checkbox" />
+                  <span class="slider"></span>
+                </label>
+                Create a simple game with C++ and Python
               </div>
+              <p class="bubble-text">Due: 10/10/2024</p>
+            </div>
 
-              <div class="bubble">
-                <h3>Upload File</h3>
-                <input type="file" id="fileUpload" name="fileUpload" />
+            <script>
+              document.getElementById("checkbox").addEventListener("change", function () {
+                if (this.checked) {
+                  var assignment = document.getElementById("assignment");
+                  var fadeEffect = setInterval(function () {
+                    if (!assignment.style.opacity) {
+                      assignment.style.opacity = 1;
+                    }
+                    if (assignment.style.opacity > 0) {
+                      assignment.style.opacity -= 0.1;
+                    } else {
+                      clearInterval(fadeEffect);
+                      assignment.style.display = "none";
+                    }
+                  }, 200);
+                }
+              });
+            </script>
+            <style>
+              .bubble {
+                background-color: #ad9552;
+                border-radius: 20px;
+                padding: 20px;
+                margin-bottom: 20px;
+                transition: transform 0.3s ease;
+              }
 
-                <span id="uploadStatus"></span>
-                <span id="uploadIcon"></span>
-              </div>
+              .bubble:hover {
+                transform: scale(1.1);
+              }
 
-              <script>
-                const fileUpload = document.getElementById("fileUpload");
-                const uploadStatus = document.getElementById("uploadStatus");
-                const uploadIcon = document.getElementById("uploadIcon");
+              .bubble h3 {
+                font-size: 24px;
+                margin-bottom: 10px;
+              }
 
-                fileUpload.addEventListener("change", () => {
-                  if (fileUpload.files.length > 0) {
-                    uploadStatus.textContent = "Complete";
-                    uploadIcon.innerHTML =
-                      '<span style="color: green;">&#10004;</span>';
-                    fileUpload.value = ""; // Clear the file input value
+              .bubble p {
+                font-size: 16px;
+                margin-bottom: 10px;
+              }
+            </style>
 
-                    // Remove the complete text after 2 seconds
-                    setTimeout(() => {
-                      uploadStatus.textContent = "";
-                      uploadIcon.innerHTML = "";
-                    }, 2000);
-                  } else {
+            <div class="bubble">
+              <h3>Mid-terms Finals</h3>
+              <p>Read Chapter 1, 2, 3, 4, 5</p>
+              <p>Read Slides</p>
+              <p>Have fun studying!</p>
+            </div>
+
+            <div class="bubble">
+              <h3>Upload File</h3>
+              <input type="file" id="fileUpload" name="fileUpload" />
+              <span id="uploadStatus"></span>
+              <span id="uploadIcon"></span>
+            </div>
+
+
+            <script>
+              const fileUpload = document.getElementById("fileUpload");
+              const uploadStatus = document.getElementById("uploadStatus");
+              const uploadIcon = document.getElementById("uploadIcon");
+
+              fileUpload.addEventListener("change", () => {
+                if (fileUpload.files.length > 0) {
+                  uploadStatus.textContent = "Complete";
+                  uploadIcon.innerHTML = '<span style="color: green;">&#10004;</span>';
+                  fileUpload.value = ""; // Clear the file input value
+
+                  // Remove the complete text after 2 seconds
+                  setTimeout(() => {
                     uploadStatus.textContent = "";
-                    uploadIcon.innerHTML =
-                      '<span style="color: red;">&#10006;</span>';
+                    uploadIcon.innerHTML = "";
+                  }, 2000);
+                } else {
+                  uploadStatus.textContent = "";
+                  uploadIcon.innerHTML = '<span style="color: red;">&#10006;</span>';
+                }
+              });
+            </script>
+
+            <style>
+              .right-hover-box,
+              .bottom-hover-box {
+                position: absolute;
+                /* Fixed position to keep it on the right side */
+                top: 15%;
+                /* Adjust this value based on desired vertical alignment */
+                right: 5px;
+                /* Right margin from the viewport edge */
+                width: 450px;
+                /* Width of the hover box */
+                background-color: #489db8;
+                /* Light background for the hover box */
+                border: 1px solid #000000;
+                /* Light grey border */
+                border-radius: 20px;
+                /* Rounded corners */
+                margin-bottom: 20px;
+                padding: 100px;
+                /* Padding inside the hover box */
+                padding-top: 160px;
+                padding-bottom: 40px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                /* Subtle shadow for better visibility */
+                z-index: 1050;
+                /* High z-index to ensure it's above other content */
+                transition: transform 0.3s ease;
+                /* Smooth scaling transition */
+              }
+
+              .right-hover-box:hover {
+                transform: scale(1.05);
+                /* Slightly enlarge on hover aka when the cursor touches it will be a pop out and pop back effect */
+              }
+
+              .bottom-hover-box {
+                top: calc(33% + 200px);
+                /* Adjust based on the height of .right-hover-box and desired spacing */
+                padding-top: 50px;
+                /* Optional, for styling */
+                margin-top: 20px;
+                /* Spacing between the two boxes */
+              }
+
+              .bottom-hover-box:hover {
+                transform: scale(1.05);
+              }
+
+              .bottom-hover-box::before {
+                content: "";
+                position: absolute;
+                top: 10px;
+                /* You may need to adjust this based on the new box's position */
+                left: 50%;
+                transform: translateX(-50%);
+                width: 30px;
+                /* Diameter of the circle */
+                height: 30px;
+                /* Diameter of the circle */
+                background-color: #007bff;
+                /* Can change color if you want differentiation */
+                border-radius: 50%;
+                /* Ensures the div is circular */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+                z-index: 1060;
+                /* Ensure it's above the hover box */
+                cursor: pointer;
+                /* Indicates that the element is clickable */
+              }
+
+              .profile-label {
+                display: block;
+                width: 120px;
+                /* Diameter of the circle */
+                height: 120px;
+                /* Diameter of the circle */
+                border-radius: 50%;
+                overflow: hidden;
+                position: absolute;
+                top: 20px;
+                /* Adjust as needed */
+                left: 50%;
+                transform: translateX(-50%);
+                cursor: pointer;
+                /* Indicates that the element is clickable */
+              }
+
+              #profile-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                /* Ensures the image covers the circle */
+              }
+            </style>
+            <!-- </head> -->
+
+            <!-- <body> -->
+              <div class="col-md-6 text-right" style="height:1em;">
+              <!-- Right-Side Hover Box  -->
+              <div class="right-hover-box" >
+                <input type="file" id="profile-upload" hidden />
+                <label for="profile-upload" class="profile-label">
+                  <img id="profile-img" src="https://via.placeholder.com/150" alt="profile image" />
+                </label>
+                <p>Email: johndoe@email.com</p>
+                <p>Major: Computer Science</p>
+                <p>Course: CSC 211</p>
+              </div>
+              <!-- New hover box below the existing one -->
+
+              <div class="bottom-hover-box" style="margin-top:3em;">
+                <h4>Calendar</h4>
+              </div>
+            </div>
+
+            <!-- Calendar Popup, placed towards the end of the body -->
+            <div id="calendarPopup" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); z-index:1070; background-color:white; border-radius:8px; box-shadow:0 0 15px rgba(0,0,0,0.5); padding:20px;">
+              <div id="calendar"></div>
+              <button id="closeCalendarButton">Close</button>
+            </div>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function () {
+                var profileUpload = document.getElementById('profile-upload');
+                profileUpload.addEventListener('change', function (event) {
+                  if (event.target.files && event.target.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                      var imgElement = document.getElementById('profile-img');
+                      imgElement.src = e.target.result;
+                      localStorage.setItem('profileImage', e.target.result);
+                    };
+                    reader.readAsDataURL(event.target.files[0]);
                   }
                 });
-              </script>
-          
-              <a class="custom-btn btn mt-4" href="index.php">Sign Out</a>
-            </div>
+
+                var storedImage = localStorage.getItem('profileImage');
+                if (storedImage) {
+                  document.getElementById('profile-img').src = storedImage;
+                }
+
+                var bottomHoverBox = document.querySelector('.bottom-hover-box');
+                bottomHoverBox.addEventListener('click', function () {
+                  document.getElementById('calendarPopup').style.display = 'block';
+                  if (!window.calendar) {
+                    var calendarEl = document.getElementById('calendar');
+                    window.calendar = new FullCalendar.Calendar(calendarEl, {
+                      plugins: ['dayGrid'],
+                      initialView: 'dayGridMonth'
+                    });
+                    window.calendar.render();
+                  }
+                });
+
+                document.getElementById('closeCalendarButton').addEventListener('click', function () {
+                  document.getElementById('calendarPopup').style.display = 'none';
+                });
+              });
+            </script>
+
+            <a class="custom-btn btn mt-4" href="index.php">Sign Out</a>
           </div>
         </div>
-      </section>
-      <div class="video-wrap">
-        <video autoplay="" loop="" muted="" class="custom-video" poster="">
-          <source src="videos/cis2.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
       </div>
-    </main>
+    </section>
 
-    <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/countdown.js"></script>
-    <script src="js/init.js"></script>
-    <script src="js/manny.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  </body>
+    
+    <div class="video-wrap">
+      <video autoplay="" loop="" muted="" class="custom-video" poster="">
+        <source src="videos/cis2.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    
+  </main>
+
+  <!-- JAVASCRIPT FILES -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/countdown.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/manny.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/core/main.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/4.2.0/daygrid/main.min.js'></script>
+</body>
 </html>
