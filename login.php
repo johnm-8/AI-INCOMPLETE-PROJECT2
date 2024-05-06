@@ -78,8 +78,21 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     Bootstrap 5 Form Pack Template
 
     -->
+ <!-- Custom CSS for full screen image -->
+ <!-- <style>
+    .full-screen-image {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover; /* Cover the whole screen without stretching */
+      z-index: -1; /* Place it behind other content */
+    }
+  </style> -->
 </head>
-
+<!-- Full Screen Image -->
+<!-- <img src="images/first.JPEG" class="full-screen-image" alt="Full screen background image"> -->
 <body>
 <main>
     <header class="site-header">
