@@ -1,3 +1,5 @@
+*DISCLAMER: If download the project and use it to see the website, just want to let you know that is not finished*
+
 First, want to give credit to Methsara & Eslem for the inspiration and starting a trend for us to follow for the Incomplete Project Internship 
 
 Students & Professors navigating through the website to complete the INC Grade. 
